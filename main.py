@@ -9,7 +9,7 @@ from tkinter.ttk import Label, Button, Entry, Progressbar, Frame, Style
 import tkinter.font as tkFont
 
 
-class PosterUI(Frame):
+class PosterUI(Frame): 
     def __init__(self, parent):
         Frame.__init__(self, parent)
         self.pack()
