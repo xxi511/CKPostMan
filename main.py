@@ -185,11 +185,10 @@ class PosterUI(Frame):
         :return: msg after processing
         '''
         newMsg = rawMsg
-        pattern1 = r'http[s]?://[a-zA-Z.]{1,}'
-        pattern2 = r'(?<!//)www[a-zA-Z.]{1,}'
+        pattern1 = r'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+'
+
         res1 = re.findall(pattern1, rawMsg, re.U)
-        res2 = re.findall(pattern2, rawMsg, re.U)
-        for res in res1+res2:
+        for res in res1:
             new = '[url]{}[/url]'.format(res)
             newMsg = newMsg.replace(res, new)
 
